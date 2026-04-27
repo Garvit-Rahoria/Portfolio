@@ -275,6 +275,7 @@ nav a:hover {
 
 .project-card:hover {
     transform: translateY(-6px);
+    box-shadow: 0 0 30px #5C5CFF;
 }
 
 .project-card img {
