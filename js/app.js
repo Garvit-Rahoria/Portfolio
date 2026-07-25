@@ -5,7 +5,12 @@
 document.addEventListener("DOMContentLoaded", function () {
     
     // AOS INIT
-    AOS.init();
+    if (window.AOS) {
+        AOS.init({
+            duration: 700,
+            once: true
+        });
+    }
 
     // TYPE EFFECT
     const roles = ["React Developer", "Web Developer", "Full Stack Developer"];
@@ -16,6 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const roleElement = document.getElementById("role");
 
     function typeEffect() {
+        if (!roleElement) return;
+
         const currentText = roles[index];
 
         charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
@@ -44,9 +51,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const menuBtn = document.querySelector(".menu-btn");
     const navMenu = document.querySelector("#navMenu");
 
-    menuBtn.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-    });
+    if (menuBtn && navMenu) {
+        menuBtn.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+
+        navMenu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                navMenu.classList.remove("active");
+            });
+        });
+    }
 
 
     // SLIDER
@@ -54,27 +69,58 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextBtn = document.querySelector(".next");
     const prevBtn = document.querySelector(".prev");
 
-    let slideIndex = 0;
-    const cardWidth = 170;
+    if (track && nextBtn && prevBtn) {
+        let slideIndex = 0;
+        let autoSlide;
 
-    function moveSlide() {
-        track.style.transform = `translateX(-${slideIndex * cardWidth}px)`;
+        function getSlideDetails() {
+            const firstCard = track.querySelector(".skill-card");
+            const wrapper = track.parentElement;
+
+            if (!firstCard || !wrapper) {
+                return { step: 0, maxIndex: 0 };
+            }
+
+            const trackStyles = window.getComputedStyle(track);
+            const gap = parseFloat(trackStyles.columnGap || trackStyles.gap) || 0;
+            const step = firstCard.getBoundingClientRect().width + gap;
+            const visibleCards = Math.max(1, Math.floor((wrapper.clientWidth + gap) / step));
+            const maxIndex = Math.max(0, track.children.length - visibleCards);
+
+            return { step, maxIndex };
+        }
+
+        function moveSlide() {
+            const { step, maxIndex } = getSlideDetails();
+            slideIndex = Math.min(slideIndex, maxIndex);
+            track.style.transform = `translateX(-${slideIndex * step}px)`;
+        }
+
+        function goNext() {
+            const { maxIndex } = getSlideDetails();
+            slideIndex = slideIndex < maxIndex ? slideIndex + 1 : 0;
+            moveSlide();
+        }
+
+        function goPrev() {
+            const { maxIndex } = getSlideDetails();
+            slideIndex = slideIndex > 0 ? slideIndex - 1 : maxIndex;
+            moveSlide();
+        }
+
+        nextBtn.addEventListener("click", goNext);
+        prevBtn.addEventListener("click", goPrev);
+        window.addEventListener("resize", moveSlide);
+
+        autoSlide = setInterval(goNext, 3000);
+
+        track.addEventListener("mouseenter", () => clearInterval(autoSlide));
+        track.addEventListener("mouseleave", () => {
+            autoSlide = setInterval(goNext, 3000);
+        });
+
+        moveSlide();
     }
-
-    nextBtn.addEventListener("click", () => {
-        slideIndex = (slideIndex < track.children.length - 4) ? slideIndex + 1 : 0;
-        moveSlide();
-    });
-
-    prevBtn.addEventListener("click", () => {
-        slideIndex = (slideIndex > 0) ? slideIndex - 1 : track.children.length - 4;
-        moveSlide();
-    });
-
-    setInterval(() => {
-        slideIndex = (slideIndex < track.children.length - 4) ? slideIndex + 1 : 0;
-        moveSlide();
-    }, 3000);
 
 
     // ACCORDION
@@ -89,6 +135,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // FORM VALIDATION
     const form = document.getElementById("contactForm");
+
+    if (!form) return;
 
     form.addEventListener("submit", function (e) {
 
@@ -115,14 +163,15 @@ document.addEventListener("DOMContentLoaded", function () {
             isValid = false;
         }
 
-        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
         if (!email.value.match(emailPattern)) {
             emailError.textContent = "Enter a valid email";
             email.classList.add("input-error");
             isValid = false;
         }
 
-        if (phone.value !== "" && phone.value.length < 10) {
+        const phoneDigits = phone.value.replace(/\D/g, "");
+        if (phone.value !== "" && phoneDigits.length < 10) {
             phoneError.textContent = "Enter valid phone number";
             phone.classList.add("input-error");
             isValid = false;
@@ -135,7 +184,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (isValid) {
-            alert("Message sent successfully 🚀");
+            const subject = encodeURIComponent(`Portfolio message from ${name.value.trim()}`);
+            const body = encodeURIComponent(
+                `Name: ${name.value.trim()}\nEmail: ${email.value.trim()}\nPhone: ${phone.value.trim() || "Not provided"}\n\nMessage:\n${message.value.trim()}`
+            );
+
+            window.location.href = `mailto:garvitrahoriya2004@gmail.com?subject=${subject}&body=${body}`;
             form.reset();
         }
 

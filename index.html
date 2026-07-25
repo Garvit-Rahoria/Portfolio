@@ -59,7 +59,8 @@
                     </p>
 
                     <!-- <a href="#projects" class="btn"> Projects</a> -->
-                    <a href="resume/Garvit-Rahoria-Resume.pdf" target="_blank" class="btn">View Resume</a>
+                    <a href="resume/Garvit-Rahoria-Resume..pdf" target="_blank" rel="noopener noreferrer"
+                        class="btn">View Resume</a>
 
                 </div>
 
@@ -164,7 +165,9 @@
 
         <div data-aos="fade-up" class="skills-slider">
 
-            <button class="prev"> ❮ </button>
+            <button class="prev" type="button" aria-label="Previous skill">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
 
             <div class="skills-wrapper">
                 <div class="skills-track ">
@@ -227,7 +230,9 @@
                 </div>
             </div>
 
-            <button class="next">❯</button>
+            <button class="next" type="button" aria-label="Next skill">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
 
         </div>
 
@@ -242,52 +247,75 @@
 
             <div data-aos="flip-up" class="project-card">
 
-                <img src="images/ngo.png" alt="Project">
+                <img src="images/ngo.png" alt="NGO Website project preview">
 
                 <h3>NGO Website</h3>
 
                 <div class="project-links">
-                    <a href="https://ngo-website-goonj-a-voice-an-effort.vercel.app/">Live Demo</a>
-                    <a href="https://github.com/Garvit-Rahoria/NGO-Website">GitHub</a>
+                    <a href="https://ngo-website-goonj-a-voice-an-effort.vercel.app/" target="_blank"
+                        rel="noopener noreferrer">Live Demo</a>
+                    <a href="https://github.com/Garvit-Rahoria/NGO-Website" target="_blank"
+                        rel="noopener noreferrer">GitHub</a>
                 </div>
 
             </div>
 
             <div data-aos="flip-up" class="project-card">
 
-                <img src="images/blinkit.png" alt="Project">
+                <img src="images/blinkit.png" alt="Blinkit Clone project preview">
 
                 <h3>Blinkit Clone</h3>
 
                 <div class="project-links">
-                    <a href="https://blinkit-clone-nu.vercel.app/">Live Demo</a>
-                    <a href="https://github.com/Garvit-Rahoria/Blinkit-Clone">GitHub</a>
+                    <a href="https://blinkit-clone-nu.vercel.app/" target="_blank"
+                        rel="noopener noreferrer">Live Demo</a>
+                    <a href="https://github.com/Garvit-Rahoria/Blinkit-Clone" target="_blank"
+                        rel="noopener noreferrer">GitHub</a>
                 </div>
 
             </div>
 
             <div data-aos="flip-up" class="project-card">
 
-                <img src="images/e-commerce.png" alt="Project">
+                <img src="images/e-commerce.png" alt="E-Commerce Website project preview">
 
                 <h3>E-Commerce Website</h3>
 
                 <div class="project-links">
-                    <a href="https://e-commerce-website-indol-kappa.vercel.app/">Live Demo</a>
-                    <a href="https://github.com/Garvit-Rahoria/E-Commerce-Website">GitHub</a>
+                    <a href="https://e-commerce-website-indol-kappa.vercel.app/" target="_blank"
+                        rel="noopener noreferrer">Live Demo</a>
+                    <a href="https://github.com/Garvit-Rahoria/E-Commerce-Website" target="_blank"
+                        rel="noopener noreferrer">GitHub</a>
                 </div>
 
             </div>
 
             <div data-aos="flip-up" class="project-card">
 
-                <img src="images/movie.png" alt="Project">
+                <img src="images/movie.png" alt="Movies Search App project preview">
 
                 <h3>Movies Search App</h3>
 
                 <div class="project-links">
-                    <a href="https://movie-search-app-bay-xi.vercel.app/">Live Demo</a>
-                    <a href="https://github.com/Garvit-Rahoria/Movie-Search-App">GitHub</a>
+                    <a href="https://movie-search-app-bay-xi.vercel.app/" target="_blank"
+                        rel="noopener noreferrer">Live Demo</a>
+                    <a href="https://github.com/Garvit-Rahoria/Movie-Search-App" target="_blank"
+                        rel="noopener noreferrer">GitHub</a>
+                </div>
+
+            </div>
+
+            <div data-aos="flip-up" class="project-card">
+
+                <img src="images/todo.png" alt="ToDo App project preview">
+
+                <h3>ToDo App</h3>
+
+                <div class="project-links">
+                    <a href="https://to-do-app-taskflows.vercel.app/" target="_blank"
+                        rel="noopener noreferrer">Live Demo</a>
+                    <a href="https://github.com/Garvit-Rahoria/to-do-app" target="_blank"
+                        rel="noopener noreferrer">GitHub</a>
                 </div>
 
             </div>
@@ -314,18 +342,18 @@
                     <p>Feel free to reach out for any project or collaboration.</p>
 
                     <div class="info-item">
-                        <strong>📍 Address:</strong>
+                        <strong><i class="fa-solid fa-location-dot"></i> Address:</strong>
                         <p>Jaipur, Rajasthan, India</p>
                     </div>
 
                     <div class="info-item">
-                        <strong>📞 Phone:</strong>
+                        <strong><i class="fa-solid fa-phone"></i> Phone:</strong>
                         <p>+91 7976946314</p>
                     </div>
 
                     <div class="info-item">
-                        <strong>📧 Email:</strong>
-                        <p>garvitrahoriya@gmail.com</p>
+                        <strong><i class="fa-solid fa-envelope"></i> Email:</strong>
+                        <p>garvitrahoriya2004@gmail.com</p>
                     </div>
 
                 </div>
@@ -333,15 +361,19 @@
                 <!-- RIGHT SIDE - FORM -->
                 <form data-aos="zoom-in" class="contact-form" id="contactForm">
 
-                    <input type="text" id="name" placeholder="Your Name">
+                    <label class="sr-only" for="name">Your Name</label>
+                    <input type="text" id="name" placeholder="Your Name" autocomplete="name">
                     <small class="error" id="nameError"></small>
 
-                    <input type="email" id="email" placeholder="Your Email">
+                    <label class="sr-only" for="email">Your Email</label>
+                    <input type="email" id="email" placeholder="Your Email" autocomplete="email">
                     <small class="error" id="emailError"></small>
 
-                    <input type="text" id="phone" placeholder="Phone Number">
+                    <label class="sr-only" for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="Phone Number" autocomplete="tel">
                     <small class="error" id="phoneError"></small>
 
+                    <label class="sr-only" for="message">Your Message</label>
                     <textarea id="message" placeholder="Your Message"></textarea>
                     <small class="error" id="messageError"></small>
 
@@ -364,7 +396,7 @@
         <div class="container accordion">
 
             <div data-aos="flip-up" class="accord-item">
-                <h3 class="accord-title">👨‍💻 Who Am I?</h3>
+                <h3 class="accord-title"><span><i class="fa-solid fa-user"></i> Who Am I?</span></h3>
                 <div class="accord-content">
                     <p>
                         I'm Garvit Rahoria, a passionate React Developer who loves creating modern, fast and
@@ -377,17 +409,17 @@
             </div>
 
             <div data-aos="flip-up" class="accord-item">
-                <h3 class="accord-title">🚀 What I Do</h3>
+                <h3 class="accord-title"><span><i class="fa-solid fa-laptop-code"></i> What I Do</span></h3>
                 <div class="accord-content">
-                    <p>✔ Responsive Web Design</p>
-                    <p>✔ Modern UI Development</p>
-                    <p>✔ React Applications</p>
-                    <p>✔ Performance Optimization</p>
+                    <p><i class="fa-solid fa-check"></i> Responsive Web Design</p>
+                    <p><i class="fa-solid fa-check"></i> Modern UI Development</p>
+                    <p><i class="fa-solid fa-check"></i> React Applications</p>
+                    <p><i class="fa-solid fa-check"></i> Performance Optimization</p>
                 </div>
             </div>
 
             <div data-aos="flip-up" class="accord-item">
-                <h3 class="accord-title">🛠️ Skills & Tools</h3>
+                <h3 class="accord-title"><span><i class="fa-solid fa-screwdriver-wrench"></i> Skills & Tools</span></h3>
                 <div class="accord-content">
                     <p><strong>Frontend:</strong> HTML, CSS, JavaScript, React, Next</p>
                     <p><strong>Backend:</strong> Node.Js, Express.Js</p>
@@ -399,7 +431,7 @@
             </div>
 
             <div data-aos="flip-up" class="accord-item">
-                <h3 class="accord-title">📈 My Goals</h3>
+                <h3 class="accord-title"><span><i class="fa-solid fa-chart-line"></i> My Goals</span></h3>
                 <div class="accord-content">
                     <p>
                         My goal is to become a professional Full Stack Developer and work on real-world projects.
@@ -411,13 +443,13 @@
             </div>
 
             <div data-aos="flip-up" class="accord-item">
-                <h3 class="accord-title">🤝 Let's Work Together</h3>
+                <h3 class="accord-title"><span><i class="fa-solid fa-handshake"></i> Let's Work Together</span></h3>
                 <div class="accord-content">
                     <p>
                         I'm open to freelance, internships, and full-time opportunities.
                     </p>
                     <p>
-                        Let's build something amazing together 🚀
+                        Let's build something amazing together.
                     </p>
                 </div>
             </div>
@@ -438,29 +470,30 @@
             </p>
 
             <div class="social-links">
-                <a href="http://www.linkedin.com/in/garvit-rahoria-2004-in" target="_blank"><i
+                <a href="https://www.linkedin.com/in/garvit-rahoria-2004-in" target="_blank"
+                    rel="noopener noreferrer"><i
                         class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/Garvit-Rahoria" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://github.com/Garvit-Rahoria" target="_blank" rel="noopener noreferrer"><i
+                        class="fa-brands fa-github"></i></a>
                 <!-- <a href="https://www.instagram.com/garvit_rahoriya/" target="_blank"><i
                         class="fa-brands fa-instagram"></i></a> -->
                 <!-- <a href="https://x.com/GarvitRahoria" target="_blank"><i class="fa-brands fa-x-twitter"></i></a> -->
-                <a href="mailto:garvitrahoriya2004@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+                <a href="mailto:garvitrahoriya2004@gmail.com"><i class="fa-solid fa-envelope"></i></a>
                 <a href="https://wa.me/7976946314?text=Hello Garvit, I saw your portfolio and want to connect."
-                    target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
 
             <div class="footer-bottom">
-                <p>© 2026 Garvit Rahoria. All Rights Reserved.</p>
+                <p>&copy; 2026 Garvit Rahoria. All Rights Reserved.</p>
             </div>
 
         </div>
 
     </footer>
 
-</body>
-
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="js/app.js"></script>
 
+</body>
 
 </html>
