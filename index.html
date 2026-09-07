@@ -59,7 +59,7 @@
                     </p>
 
                     <!-- <a href="#projects" class="btn"> Projects</a> -->
-                    <a href="resume/Garvit-Rahoria-Resume.pdf" target="_blank" rel="noopener noreferrer"
+                    <a href="resume/Garvit_Rahoria_Resume.pdf" target="_blank" rel="noopener noreferrer"
                         class="btn">View Resume</a>
 
                 </div>
@@ -347,19 +347,20 @@
                 <!-- RIGHT SIDE - FORM -->
                 <form data-aos="zoom-in" class="contact-form" id="contactForm">
 
-                    <input type="text" id="name" placeholder="Your Name">
+                    <input type="text" id="name" placeholder="Your Name" autocomplete="name" minlength="2" maxlength="50" pattern="[A-Za-z][A-Za-z .'-]{1,49}" required>
                     <small class="error" id="nameError"></small>
 
-                    <input type="email" id="email" placeholder="Your Email">
+                    <input type="email" id="email" placeholder="Your Email" autocomplete="email" required>
                     <small class="error" id="emailError"></small>
 
-                    <input type="text" id="phone" placeholder="Phone Number">
+                    <input type="tel" id="phone" placeholder="Phone Number" autocomplete="tel" inputmode="numeric" maxlength="10" pattern="[0-9]{10}" required>
                     <small class="error" id="phoneError"></small>
 
-                    <textarea id="message" placeholder="Your Message"></textarea>
+                    <textarea id="message" placeholder="Your Message" minlength="1" maxlength="1000" required></textarea>
                     <small class="error" id="messageError"></small>
 
                     <button type="submit">Send Message</button>
+                    <small class="form-status" id="formStatus" role="status"></small>
 
                 </form>
 

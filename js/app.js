@@ -138,6 +138,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!form) return;
 
+    const phone = document.getElementById("phone");
+    phone.addEventListener("input", () => {
+        phone.value = phone.value.replace(/\D/g, "").slice(0, 10);
+    });
+
     form.addEventListener("submit", function (e) {
 
         e.preventDefault();
@@ -153,26 +158,33 @@ document.addEventListener("DOMContentLoaded", function () {
         const emailError = document.getElementById("emailError");
         const phoneError = document.getElementById("phoneError");
         const messageError = document.getElementById("messageError");
+        const formStatus = document.getElementById("formStatus");
 
+        formStatus.textContent = "";
+        formStatus.className = "form-status";
         document.querySelectorAll(".error").forEach(el => el.textContent = "");
         document.querySelectorAll("input, textarea").forEach(el => el.classList.remove("input-error"));
 
-        if (name.value.trim() === "") {
+        const nameValue = name.value.trim();
+        if (nameValue === "") {
             nameError.textContent = "Name is required";
+            name.classList.add("input-error");
+            isValid = false;
+        } else if (!/^[A-Za-z][A-Za-z .'-]{1,49}$/.test(nameValue)) {
+            nameError.textContent = "Enter a valid name";
             name.classList.add("input-error");
             isValid = false;
         }
 
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-        if (!email.value.match(emailPattern)) {
+        if (!emailPattern.test(email.value.trim())) {
             emailError.textContent = "Enter a valid email";
             email.classList.add("input-error");
             isValid = false;
         }
 
-        const phoneDigits = phone.value.replace(/\D/g, "");
-        if (phone.value !== "" && phoneDigits.length < 10) {
-            phoneError.textContent = "Enter valid phone number";
+        if (!/^\d{10}$/.test(phone.value)) {
+            phoneError.textContent = "Phone number must be exactly 10 digits";
             phone.classList.add("input-error");
             isValid = false;
         }
@@ -184,13 +196,35 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (isValid) {
-            const subject = encodeURIComponent(`Portfolio message from ${name.value.trim()}`);
-            const body = encodeURIComponent(
-                `Name: ${name.value.trim()}\nEmail: ${email.value.trim()}\nPhone: ${phone.value.trim() || "Not provided"}\n\nMessage:\n${message.value.trim()}`
-            );
+            const submitButton = form.querySelector("button[type=\"submit\"]");
+            submitButton.disabled = true;
+            submitButton.textContent = "Sending...";
 
-            window.location.href = `mailto:garvitrahoriya2004@gmail.com?subject=${subject}&body=${body}`;
-            form.reset();
+            fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: nameValue,
+                    email: email.value.trim(),
+                    phone: phone.value,
+                    message: message.value.trim()
+                })
+            })
+                .then(response => response.json().then(data => ({ ok: response.ok, data })))
+                .then(({ ok, data }) => {
+                    if (!ok) throw new Error(data.error || "Message send nahi ho saka");
+                    formStatus.textContent = "Your message has been sent successfully.";
+                    formStatus.classList.add("success");
+                    form.reset();
+                })
+                .catch(error => {
+                    formStatus.textContent = error.message || "Message send nahi ho saka. Please try again.";
+                    formStatus.classList.add("failure");
+                })
+                .finally(() => {
+                    submitButton.disabled = false;
+                    submitButton.textContent = "Send Message";
+                });
         }
 
     });
