@@ -1,505 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Garvit Rahoria | Full Stack Developer</title>
-    <meta name="description" content="Garvit Rahoria Frontend Developer Portfolio">
+    <meta name="description" content="Garvit Rahoria's full stack developer portfolio featuring responsive web projects and contact details.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 </head>
-
 <body>
-
-    <!-- HEADER -->
     <header data-aos="fade-down">
         <div class="container nav-container">
-
-            <h2 class="logo">Garvit Rahoria.</h2>
-
-            <nav id="navMenu">
-
-                <a href="#">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-                <a href="#faq">FAQ</a>
-
+            <a class="logo" href="#home">Garvit Rahoria.</a>
+            <nav id="navMenu" aria-label="Primary navigation">
+                <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
             </nav>
-
-            <div class="menu-btn">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-
+            <a class="nav-resume" href="resume/Garvit_Rahoria_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume <i class="fa-solid fa-download"></i></a>
+            <button class="menu-btn" type="button" aria-label="Open navigation menu" aria-controls="navMenu"><i class="fa-solid fa-bars"></i></button>
         </div>
     </header>
 
-
-    <!-- HERO -->
-    <section class="hero">
-
-        <div class="container hero-container">
-
-            <div data-aos="fade-right" class="hero-text">
-
-                <p class="hero-eyebrow">FULL STACK DEVELOPER · JAIPUR, INDIA</p>
-
-                <h1>
-                    Hi, I'm <span class="highlight">Garvit Rahoria</span>
-                </h1>
-
-                <h2 id="role">React Developer!</h2>
-
-                <div class="gap">
-                    <p>
-                        I build clean, responsive and user-friendly websites using modern web technologies.
-                        Focused on performance, simplicity and great user experience.
-                    </p>
-
-                    <div class="hero-actions">
-                        <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="resume/Garvit_Rahoria_Resume.pdf" target="_blank" rel="noopener noreferrer"
-                        class="btn btn-secondary">View Resume</a>
-                    </div>
-
+    <main>
+        <section id="home" class="hero">
+            <div class="container hero-container">
+                <div data-aos="fade-right" class="hero-text">
+                    <p class="hero-eyebrow"><i class="fa-solid fa-star"></i> FULL STACK DEVELOPER <span>&middot;</span> JAIPUR, INDIA</p>
+                    <h1>Hi, I'm <span class="highlight">Garvit Rahoria</span></h1>
+                    <h2 id="role">Full Stack Developer</h2>
+                    <p class="hero-copy">I build responsive, scalable and user-friendly web applications using modern technologies like React, Node.js, Express.js and MongoDB.</p>
+                    <div class="hero-actions"><a href="#projects" class="btn btn-primary">View Projects <i class="fa-solid fa-arrow-right"></i></a><a href="resume/Garvit_Rahoria_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Resume <i class="fa-solid fa-download"></i></a><a href="https://github.com/Garvit-Rahoria" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">GitHub <i class="fa-brands fa-github"></i></a></div>
+                    <div class="social-links hero-socials" aria-label="Social links"><a href="https://www.linkedin.com/in/garvit-rahoria-2004-in" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a href="mailto:garvitrahoriya@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a><a href="https://wa.me/7976946314" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a></div>
                 </div>
-
-            </div>
-
-            <div data-aos="fade-left" class="hero-img">
-
-                <img src="images/4.png" alt="Garvit Rahoria">
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-    <section id="about" class="about">
-
-        <div class="container about-container">
-
-            <div data-aos="fade-right" class="about-img">
-                <img src="images/6.png" alt="About image">
-            </div>
-
-            <div data-aos="fade-up" class="about-text">
-
-                <h2>About Me</h2>
-
-                <p>
-                    I'm a passionate frontend developer who enjoys building modern and minimal websites.
-                    I focus on creating fast, responsive and visually appealing user interfaces.
-                </p>
-
-                <p>
-                    I constantly explore new technologies and improve my coding practices
-                    to build better web experiences.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- SKILLS -->
-    <!-- <section id="skills" class="skills">
-
-        <h2 class="section-title">My Skills</h2>
-
-        <div class="container skills-container">
-
-            <div class="skill-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg">
-                <p>HTML</p>
-            </div>
-
-            <div class="skill-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Official_CSS_Logo.svg">
-                <p>CSS</p>
-            </div>
-
-            <div class="skill-card">
-                <img src="https://www.w3schools.com/js/img_javascript_480.jpg">
-                <p>JavaScript</p>
-            </div>
-            <div class="skill-card">
-                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png">
-                <p>GitHub</p>
-            </div>
-            <div class="skill-card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd7N0MXomFENowaxZqTI9xuIeb5H05fElzdg&s">
-                <p>React.Js</p>
-            </div>
-            <div class="skill-card">
-                <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Ls3e2wM0pa2_wKOMi89BUPPheB3gScbbGLgdYjEieIwQg3xA">
-                <p>TailwindCSS</p>
-            </div>
-            <div class="skill-card">
-                <img
-                    src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/mongodb-icon.png">
-                <p>MongoDB</p>
-            </div>
-            <div class="skill-card">
-                <img src="https://www.clipartmax.com/png/middle/70-701332_hire-node-js-developer-node-logo.png">
-                <p>Node.JS</p>
-            </div>
-            <div class="skill-card">
-                <img src="https://www.pngfind.com/pngs/m/136-1363736_express-js-icon-png-transparent-png.png">
-                <p>Express.JS</p>
-            </div>
-
-
-        </div>
-
-    </section> -->
-
-    <section id="skills" class="skills">
-
-        <h2 data-aos="fade-right" class="section-title">My Skills</h2>
-
-        <div data-aos="fade-up" class="skills-slider">
-
-            <button class="prev"> ❮ </button>
-
-            <div class="skills-wrapper">
-                <div class="skills-track ">
-
-                    <!-- SAME CARDS -->
-                    <div class="skill-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg">
-                        <p>HTML</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Official_CSS_Logo.svg">
-                        <p>CSS</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <img src="https://www.w3schools.com/js/img_javascript_480.jpg">
-                        <p>JavaScript</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png">
-                        <p>GitHub</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd7N0MXomFENowaxZqTI9xuIeb5H05fElzdg&s">
-                        <p>React.Js</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfvuvK1l0Jr-fESiyhjIp1jn3BoE41IefrGA&s">
-                        <p>Next.Js</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Ls3e2wM0pa2_wKOMi89BUPPheB3gScbbGLgdYjEieIwQg3xA">
-                        <p>TailwindCSS</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <img
-                            src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/mongodb-icon.png">
-                        <p>MongoDB</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <img src="https://www.clipartmax.com/png/middle/70-701332_hire-node-js-developer-node-logo.png">
-                        <p>Node.JS</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <img src="https://www.pngfind.com/pngs/m/136-1363736_express-js-icon-png-transparent-png.png">
-                        <p>Express.JS</p>
-                    </div>
-
+                <div data-aos="fade-left" class="hero-visual">
+                    <div class="hero-photo-wrap"><img src="images/4.png" alt="Garvit Rahoria, full stack developer"></div>
+                    <div class="availability"><i class="fa-solid fa-circle"></i><span><strong>Open to Opportunities</strong><small>Internship | Full-Time</small></span></div>
+                    <div class="hero-stats"><div><strong>5+</strong><span>Projects</span></div><div><strong>1+</strong><span>Years Learning</span></div><div><strong>100%</strong><span>Passion</span></div></div>
                 </div>
             </div>
+        </section>
 
-            <button class="next">❯</button>
+        <section id="about" class="section about"><div class="container about-grid"><div data-aos="fade-right" class="about-copy"><p class="section-kicker"><i class="fa-solid fa-user"></i> ABOUT ME</p><h2>Turning Ideas Into<br><span>Real Products</span></h2><p>I'm a Full Stack Developer who enjoys building modern and minimal web applications. I focus on creating fast, responsive and visually appealing user interfaces backed by reliable systems.</p><p>I constantly explore new technologies and improve my coding practices to build better web experiences.</p><a href="#contact" class="btn btn-primary">Let's Connect <i class="fa-solid fa-arrow-right"></i></a></div><div data-aos="fade-left" class="about-profile"><img src="images/6.png" alt="Garvit Rahoria working on web projects"><div class="profile-details"><div><i class="fa-solid fa-user"></i><span><small>Name</small>Garvit Rahoria</span></div><div><i class="fa-solid fa-location-dot"></i><span><small>Location</small>Jaipur, Rajasthan, India</span></div><div><i class="fa-solid fa-graduation-cap"></i><span><small>Education</small>MCA (Pursuing)</span></div><div><i class="fa-solid fa-briefcase"></i><span><small>Interests</small>Web Development, Technology</span></div></div></div></div></section>
 
-        </div>
+        <section id="skills" class="section skills"><div class="container"><div class="section-heading"><div><p class="section-kicker"><i class="fa-solid fa-code"></i> MY SKILLS</p><h2>Technologies I Work With</h2></div><p>I'm always learning and exploring new tools.</p></div><div class="skills-grid"><article class="skill-group"><h3><i class="fa-solid fa-display"></i> Frontend</h3><ul><li><i class="fa-brands fa-html5"></i>HTML5</li><li><i class="fa-brands fa-css3-alt"></i>CSS3</li><li><i class="fa-brands fa-js"></i>JavaScript</li><li><i class="fa-brands fa-react"></i>React.js</li><li><i class="fa-solid fa-n"></i>Next.js</li><li><i class="fa-solid fa-wind"></i>Tailwind CSS</li></ul></article><article class="skill-group"><h3><i class="fa-solid fa-server"></i> Backend</h3><ul><li><i class="fa-brands fa-node-js"></i>Node.js</li><li><i class="fa-solid fa-bolt"></i>Express.js</li><li><i class="fa-solid fa-plug"></i>REST APIs</li></ul></article><article class="skill-group"><h3><i class="fa-solid fa-database"></i> Database</h3><ul><li><i class="fa-solid fa-leaf"></i>MongoDB</li><li><i class="fa-solid fa-table"></i>MySQL / MariaDB</li></ul></article><article class="skill-group"><h3><i class="fa-solid fa-wrench"></i> Tools & Others</h3><ul><li><i class="fa-brands fa-git-alt"></i>Git</li><li><i class="fa-brands fa-github"></i>GitHub</li><li><i class="fa-solid fa-paper-plane"></i>Postman</li><li><i class="fa-solid fa-code"></i>VS Code</li><li><i class="fa-solid fa-cloud"></i>Vercel</li></ul></article></div></div></section>
 
-    </section>
+        <section id="projects" class="section projects"><div class="container"><div class="section-heading project-heading"><div><p class="section-kicker"><i class="fa-solid fa-layer-group"></i> MY PROJECTS</p><h2>Some Things I've Built</h2></div><a href="https://github.com/Garvit-Rahoria" target="_blank" rel="noopener noreferrer" class="text-link">View All Projects <i class="fa-solid fa-arrow-right"></i></a></div><div class="project-grid">
+            <article data-aos="fade-up" class="project-card"><img src="images/ngo.png" alt="NGO website project screenshot"><div class="project-body"><h3>NGO Website</h3><p>A responsive website to support an NGO and create awareness about social work.</p><div class="project-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><div class="project-links"><a href="https://ngo-website-goonj-a-voice-an-effort.vercel.app/" target="_blank" rel="noopener noreferrer">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="https://github.com/Garvit-Rahoria/NGO-Website" target="_blank" rel="noopener noreferrer">GitHub <i class="fa-brands fa-github"></i></a></div></div></article>
+            <article data-aos="fade-up" class="project-card"><img src="images/e-commerce.png" alt="E-commerce website project screenshot"><div class="project-body"><h3>E-Commerce Website</h3><p>A modern e-commerce platform with product browsing, cart and order flows.</p><div class="project-stack"><span>React</span><span>Node.js</span><span>MongoDB</span></div><div class="project-links"><a href="https://e-commerce-website-indol-kappa.vercel.app/" target="_blank" rel="noopener noreferrer">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="https://github.com/Garvit-Rahoria/E-Commerce-Website" target="_blank" rel="noopener noreferrer">GitHub <i class="fa-brands fa-github"></i></a></div></div></article>
+            <article data-aos="fade-up" class="project-card"><img src="images/blinkit.png" alt="Blinkit clone project screenshot"><div class="project-body"><h3>Blinkit Clone</h3><p>A grocery shopping interface focused on clean layouts and responsive design.</p><div class="project-stack"><span>React</span><span>Tailwind CSS</span><span>API</span></div><div class="project-links"><a href="https://blinkit-clone-nu.vercel.app/" target="_blank" rel="noopener noreferrer">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="https://github.com/Garvit-Rahoria/Blinkit-Clone" target="_blank" rel="noopener noreferrer">GitHub <i class="fa-brands fa-github"></i></a></div></div></article>
+            <article data-aos="fade-up" class="project-card"><img src="images/movie.png" alt="Movies search app project screenshot"><div class="project-body"><h3>Movies Search App</h3><p>Search and explore movies through a simple and responsive interface.</p><div class="project-stack"><span>React</span><span>API</span><span>CSS</span></div><div class="project-links"><a href="https://movie-search-app-bay-xi.vercel.app/" target="_blank" rel="noopener noreferrer">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="https://github.com/Garvit-Rahoria/Movie-Search-App" target="_blank" rel="noopener noreferrer">GitHub <i class="fa-brands fa-github"></i></a></div></div></article>
+            <article data-aos="fade-up" class="project-card"><img src="images/todo.png" alt="ToDo app project screenshot"><div class="project-body"><h3>ToDo App</h3><p>A focused task manager for adding, tracking and completing daily tasks.</p><div class="project-stack"><span>React</span><span>CSS</span><span>JavaScript</span></div><div class="project-links"><a href="https://to-do-app-taskflows.vercel.app/" target="_blank" rel="noopener noreferrer">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="https://github.com/Garvit-Rahoria/to-do-app" target="_blank" rel="noopener noreferrer">GitHub <i class="fa-brands fa-github"></i></a></div></div></article>
+        </div></div></section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="projects">
+        <section class="container cta-section"><div class="cta-card"><div class="cta-icon"><i class="fa-solid fa-rocket"></i></div><div><h2>Have a Project in Mind?</h2><p>Let's work together and build something amazing.</p></div><a href="#contact" class="btn btn-primary">Get in Touch <i class="fa-solid fa-arrow-right"></i></a></div></section>
 
-        <h2 class="section-title" data-aos="fade-right">My Projects</h2>
+        <section id="contact" class="section contact"><div class="container"><div class="section-heading"><div><p class="section-kicker"><i class="fa-solid fa-at"></i> CONTACT</p><h2>Get in Touch</h2></div><p>Feel free to reach out for any project, opportunity or collaboration.</p></div><div class="contact-grid"><div class="contact-info"><div class="info-item"><i class="fa-solid fa-location-dot"></i><span><small>Location</small>Jaipur, Rajasthan, India</span></div><div class="info-item"><i class="fa-solid fa-envelope"></i><span><small>Email</small>garvitrahoriya@gmail.com</span></div><div class="info-item"><i class="fa-brands fa-linkedin-in"></i><span><small>LinkedIn</small>linkedin.com/in/garvit-rahoria</span></div><div class="info-item"><i class="fa-brands fa-github"></i><span><small>GitHub</small>github.com/Garvit-Rahoria</span></div></div><form data-aos="zoom-in" class="contact-form" id="contactForm"><label class="sr-only" for="name">Your Name</label><input type="text" id="name" placeholder="Your Name" autocomplete="name" minlength="2" maxlength="50" required><small class="error" id="nameError"></small><label class="sr-only" for="email">Your Email</label><input type="email" id="email" placeholder="Your Email" autocomplete="email" required><small class="error" id="emailError"></small><label class="sr-only" for="phone">Phone Number</label><input type="tel" id="phone" placeholder="Phone Number" autocomplete="tel" inputmode="numeric" maxlength="10" required><small class="error" id="phoneError"></small><label class="sr-only" for="message">Your Message</label><textarea id="message" placeholder="Your Message" minlength="1" maxlength="1000" required></textarea><small class="error" id="messageError"></small><button type="submit">Send Message <i class="fa-solid fa-paper-plane"></i></button><small class="form-status" id="formStatus" role="status"></small></form></div></div></section>
 
-        <div class="container project-container">
+        <section id="faq" class="section faq"><div class="container"><div class="section-heading"><div><p class="section-kicker"><i class="fa-solid fa-circle-question"></i> FAQ</p><h2>More About Me</h2></div><p>Quick answers to common questions.</p></div><div class="accordion"><div class="accord-item"><h3 class="accord-title"><span><i class="fa-solid fa-user"></i> Who Am I?</span></h3><div class="accord-content"><p>I'm Garvit Rahoria, a passionate full stack developer who loves creating modern, fast and user-friendly web applications.</p></div></div><div class="accord-item"><h3 class="accord-title"><span><i class="fa-solid fa-briefcase"></i> What Do I Do?</span></h3><div class="accord-content"><p>I build responsive interfaces, REST APIs and full stack web experiences.</p></div></div><div class="accord-item"><h3 class="accord-title"><span><i class="fa-solid fa-wrench"></i> Skills & Tools</span></h3><div class="accord-content"><p>Frontend: HTML, CSS, JavaScript, React, Next.js. Backend: Node.js, Express.js. Database: MongoDB.</p></div></div><div class="accord-item"><h3 class="accord-title"><span><i class="fa-solid fa-handshake"></i> Let's Work Together</span></h3><div class="accord-content"><p>I'm open to freelance, internships and full-time opportunities.</p></div></div></div></div></section>
+    </main>
 
-            <div data-aos="flip-up" class="project-card">
-
-                <img src="images/ngo.png" alt="Project">
-
-                <h3>NGO Website</h3>
-
-                <p class="project-description">A responsive website created to support an NGO and its mission.</p>
-
-                <div class="project-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-
-                <div class="project-links">
-                    <a href="https://ngo-website-goonj-a-voice-an-effort.vercel.app/">Live Demo</a>
-                    <a href="https://github.com/Garvit-Rahoria/NGO-Website">GitHub</a>
-                </div>
-
-            </div>
-
-            <div data-aos="flip-up" class="project-card">
-
-                <img src="images/blinkit.png" alt="Project">
-
-                <h3>Blinkit Clone</h3>
-
-                <p class="project-description">A grocery shopping interface focused on clean layouts and responsive design.</p>
-
-                <div class="project-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-
-                <div class="project-links">
-                    <a href="https://blinkit-clone-nu.vercel.app/">Live Demo</a>
-                    <a href="https://github.com/Garvit-Rahoria/Blinkit-Clone">GitHub</a>
-                </div>
-
-            </div>
-
-            <div data-aos="flip-up" class="project-card">
-
-                <img src="images/e-commerce.png" alt="Project">
-
-                <h3>E-Commerce Website</h3>
-
-                <p class="project-description">A modern storefront interface with product-focused browsing experience.</p>
-
-                <div class="project-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-
-                <div class="project-links">
-                    <a href="https://e-commerce-website-indol-kappa.vercel.app/">Live Demo</a>
-                    <a href="https://github.com/Garvit-Rahoria/E-Commerce-Website">GitHub</a>
-                </div>
-
-            </div>
-
-            <div data-aos="flip-up" class="project-card">
-
-                <img src="images/movie.png" alt="Project">
-
-                <h3>Movies Search App</h3>
-
-                <p class="project-description">Search and explore movies through a simple, responsive user interface.</p>
-
-                <div class="project-stack"><span>JavaScript</span><span>API</span><span>CSS</span></div>
-
-                <div class="project-links">
-                    <a href="https://movie-search-app-bay-xi.vercel.app/">Live Demo</a>
-                    <a href="https://github.com/Garvit-Rahoria/Movie-Search-App">GitHub</a>
-                </div>
-
-            </div>
-
-             <div data-aos="flip-up" class="project-card">
-
-                <img src="images/todo.png" alt="Project">
-
-                <h3>ToDo App</h3>
-
-                <p class="project-description">A focused task manager for adding, tracking and completing daily tasks.</p>
-
-                <div class="project-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-
-                <div class="project-links">
-                    <a href="https://to-do-app-taskflows.vercel.app/">Live Demo</a>
-                    <a href="https://github.com/Garvit-Rahoria/to-do-app">GitHub</a>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- CONTACT -->
-
-    <section id="contact" class="contact">
-
-        <div class="container contact-container">
-
-            <h2 data-aos="fade-right">Contact Me</h2>
-
-            <div class="contact-content">
-
-                <!-- LEFT SIDE - INFO -->
-                <div data-aos="fade-right" class="contact-info">
-
-                    <h3>Get in Touch</h3>
-
-                    <p>Feel free to reach out for any project or collaboration.</p>
-
-                    <div class="info-item">
-                        <strong>📍 Address:</strong>
-                        <p>Jaipur, Rajasthan, India</p>
-                    </div>
-
-                    <div class="info-item">
-                        <strong>📞 Phone:</strong>
-                        <p>+91 7976946314</p>
-                    </div>
-
-                    <div class="info-item">
-                        <strong>📧 Email:</strong>
-                        <p>garvitrahoriya@gmail.com</p>
-                    </div>
-
-                </div>
-
-                <!-- RIGHT SIDE - FORM -->
-                <form data-aos="zoom-in" class="contact-form" id="contactForm">
-
-                    <input type="text" id="name" placeholder="Your Name" autocomplete="name" minlength="2" maxlength="50" pattern="[A-Za-z][A-Za-z .'-]{1,49}" required>
-                    <small class="error" id="nameError"></small>
-
-                    <input type="email" id="email" placeholder="Your Email" autocomplete="email" required>
-                    <small class="error" id="emailError"></small>
-
-                    <input type="tel" id="phone" placeholder="Phone Number" autocomplete="tel" inputmode="numeric" maxlength="10" pattern="[0-9]{10}" required>
-                    <small class="error" id="phoneError"></small>
-
-                    <textarea id="message" placeholder="Your Message" minlength="1" maxlength="1000" required></textarea>
-                    <small class="error" id="messageError"></small>
-
-                    <button type="submit">Send Message</button>
-                    <small class="form-status" id="formStatus" role="status"></small>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- FAQ -->
-
-    <section id="faq" class="faq">
-
-        <h2 data-aos="fade-right" class="title">More About Me</h2>
-
-        <div class="container accordion">
-
-            <div data-aos="flip-up" class="accord-item">
-                <h3 class="accord-title">👨‍💻 Who Am I?</h3>
-                <div class="accord-content">
-                    <p>
-                        I'm Garvit Rahoria, a passionate React Developer who loves creating modern, fast and
-                        user-friendly web applications.
-                    </p>
-                    <p>
-                        I focus on writing clean code and building smooth UI experiences.
-                    </p>
-                </div>
-            </div>
-
-            <div data-aos="flip-up" class="accord-item">
-                <h3 class="accord-title">🚀 What I Do</h3>
-                <div class="accord-content">
-                    <p>✔ Responsive Web Design</p>
-                    <p>✔ Modern UI Development</p>
-                    <p>✔ React Applications</p>
-                    <p>✔ Performance Optimization</p>
-                </div>
-            </div>
-
-            <div data-aos="flip-up" class="accord-item">
-                <h3 class="accord-title">🛠️ Skills & Tools</h3>
-                <div class="accord-content">
-                    <p><strong>Frontend:</strong> HTML, CSS, JavaScript, React, Next</p>
-                    <p><strong>Backend:</strong> Node.Js, Express.Js</p>
-                    <p><strong>Styling:</strong> Tailwind CSS</p>
-                    <p><strong>DataBase:</strong> MongoDB</p>
-                    <p><strong>Tools:</strong> VS Code, Git, GitHub, ChatGPT</p>
-
-                </div>
-            </div>
-
-            <div data-aos="flip-up" class="accord-item">
-                <h3 class="accord-title">📈 My Goals</h3>
-                <div class="accord-content">
-                    <p>
-                        My goal is to become a professional Full Stack Developer and work on real-world projects.
-                    </p>
-                    <p>
-                        I continuously improve my skills by building projects and learning new technologies.
-                    </p>
-                </div>
-            </div>
-
-            <div data-aos="flip-up" class="accord-item">
-                <h3 class="accord-title">🤝 Let's Work Together</h3>
-                <div class="accord-content">
-                    <p>
-                        I'm open to freelance, internships, and full-time opportunities.
-                    </p>
-                    <p>
-                        Let's build something amazing together 🚀
-                    </p>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-
-        <div class="footer-container">
-
-            <h2 data-aos="fade-up">Garvit Rahoria</h2>
-
-            <p data-aos="fade-up" class="tagline">
-                Frontend Developer building clean & modern web experiences.
-            </p>
-
-            <div class="social-links">
-                <a href="http://www.linkedin.com/in/garvit-rahoria-2004-in" target="_blank"><i
-                        class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/Garvit-Rahoria" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <!-- <a href="https://www.instagram.com/garvit_rahoriya/" target="_blank"><i
-                        class="fa-brands fa-instagram"></i></a> -->
-                <!-- <a href="https://x.com/GarvitRahoria" target="_blank"><i class="fa-brands fa-x-twitter"></i></a> -->
-                <a href="mailto:garvitrahoriya2004@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
-                <a href="https://wa.me/7976946314?text=Hello Garvit, I saw your portfolio and want to connect."
-                    target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-            </div>
-
-            <div class="footer-bottom">
-                <p>© 2026 Garvit Rahoria. All Rights Reserved.</p>
-            </div>
-
-        </div>
-
-    </footer>
-
+    <footer><div class="container footer-inner"><div><a class="logo" href="#home">Garvit Rahoria.</a><p>Full Stack Developer | MERN Stack</p><div class="social-links"><a href="https://www.linkedin.com/in/garvit-rahoria-2004-in" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a href="https://github.com/Garvit-Rahoria" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a><a href="mailto:garvitrahoriya@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a><a href="https://wa.me/7976946314" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a></div></div><div class="footer-nav"><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a><p>&copy; 2026 Garvit Rahoria. All Rights Reserved.</p></div></div></footer>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script><script src="js/app.js"></script>
 </body>
-
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script src="js/app.js"></script>
-
-
 </html>
