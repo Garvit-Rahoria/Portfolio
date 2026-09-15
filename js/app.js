@@ -12,6 +12,40 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // Make contact details clickable.
+    const contactLinks = [
+        {
+            selector: ".contact-info .info-item:nth-child(2) span",
+            href: "mailto:garvitrahoria2004@gmail.com",
+            text: "garvitrahoria2004@gmail.com"
+        },
+        {
+            selector: ".contact-info .info-item:nth-child(3) span",
+            href: "https://www.linkedin.com/in/garvit-rahoria-2004-in",
+            text: "linkedin.com/in/garvit-rahoria-2004-in"
+        },
+        {
+            selector: ".contact-info .info-item:nth-child(4) span",
+            href: "https://github.com/Garvit-Rahoria",
+            text: "github.com/Garvit-Rahoria"
+        }
+    ];
+
+    contactLinks.forEach(({ selector, href, text }) => {
+        const container = document.querySelector(selector);
+        const label = container?.querySelector("small");
+        if (!container || !label) return;
+
+        const link = document.createElement("a");
+        link.href = href;
+        link.textContent = text;
+        if (!href.startsWith("mailto:")) {
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+        }
+        container.replaceChildren(label, link);
+    });
+
     // TYPE EFFECT
     const roles = ["React Developer", "Web Developer", "Full Stack Developer"];
     let index = 0;
@@ -200,7 +234,11 @@ document.addEventListener("DOMContentLoaded", function () {
             submitButton.disabled = true;
             submitButton.textContent = "Sending...";
 
-            fetch("/api/contact", {
+            const apiUrl = ["localhost", "127.0.0.1"].includes(window.location.hostname) && window.location.port !== "3000"
+                ? "http://localhost:3000/api/contact"
+                : "/api/contact";
+
+            fetch(apiUrl, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -210,15 +248,28 @@ document.addEventListener("DOMContentLoaded", function () {
                     message: message.value.trim()
                 })
             })
-                .then(response => response.json().then(data => ({ ok: response.ok, data })))
+                .then(async response => {
+                    const responseText = await response.text();
+                    let data = {};
+
+                    if (responseText.trim()) {
+                        try {
+                            data = JSON.parse(responseText);
+                        } catch {
+                            data = { error: responseText };
+                        }
+                    }
+
+                    return { ok: response.ok, data };
+                })
                 .then(({ ok, data }) => {
-                    if (!ok) throw new Error(data.error || "Message send nahi ho saka");
+                    if (!ok) throw new Error(data.error || "Unable to send the message.");
                     formStatus.textContent = "Your message has been sent successfully.";
                     formStatus.classList.add("success");
                     form.reset();
                 })
                 .catch(error => {
-                    formStatus.textContent = error.message || "Message send nahi ho saka. Please try again.";
+                    formStatus.textContent = error.message || "Unable to send the message. Please try again.";
                     formStatus.classList.add("failure");
                 })
                 .finally(() => {

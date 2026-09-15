@@ -62,7 +62,7 @@ module.exports = async function handler(req, res) {
     } catch (error) {
         console.error("Contact email error:", error);
         return res.status(500).json({
-            error: "Message send nahi ho saka. Please try again."
+            error: "Unable to send the message. Please try again."
         });
     }
 };

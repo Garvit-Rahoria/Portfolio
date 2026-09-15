@@ -11,6 +11,21 @@ const emailPass = process.env.EMAIL_PASS || process.env.GMAIL_APP_PASSWORD;
 app.use(express.json({ limit: "20kb" }));
 app.use(express.static(__dirname));
 
+app.use((req, res, next) => {
+    const origin = req.headers.origin || "";
+    if (/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) {
+        res.setHeader("Access-Control-Allow-Origin", origin);
+        res.setHeader("Vary", "Origin");
+        res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+        res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+    }
+
+    if (req.method === "OPTIONS") {
+        return res.sendStatus(204);
+    }
+    next();
+});
+
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -50,8 +65,17 @@ app.post("/api/contact", async (req, res) => {
         res.json({ success: true });
     } catch (error) {
         console.error("Contact email error:", error.message);
-        res.status(500).json({ error: "Message send nahi ho saka. Please try again." });
+        res.status(500).json({ error: "Unable to send the message. Please try again." });
     }
+});
+
+app.use((error, req, res, next) => {
+    if (error instanceof SyntaxError && error.status === 400 && "body" in error) {
+        return res.status(400).json({ error: "Invalid request data" });
+    }
+
+    console.error("Server error:", error);
+    return res.status(500).json({ error: "Internal server error" });
 });
 
 app.listen(port, () => {
